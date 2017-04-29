@@ -88,7 +88,7 @@ function uptime() {
 						"<td id=\"online4\"><div class=\"progress\"><div style=\"width: 100%;\" class=\"progress-bar progress-bar-warning\"><small>加载中</small></div></div></td>" +
 						"<td id=\"name\">加载中</td>" +
 						"<td id=\"type\">加载中</td>" +
-						"<td id=\"host\">加载中</td>" +
+						"<!-- td id=\"host\">加载中</td -->" +
 						"<td id=\"location\">加载中</td>" +
 						"<td id=\"uptime\">加载中</td>" +
 						"<td id=\"load\">加载中</td>" +
@@ -140,7 +140,7 @@ function uptime() {
 			TableRow.children["type"].innerHTML = result.servers[i].type;
 
 			// Host
-			TableRow.children["host"].innerHTML = result.servers[i].host;
+			//TableRow.children["host"].innerHTML = result.servers[i].host;
 
 			// Location
 			TableRow.children["location"].innerHTML = result.servers[i].location;
@@ -183,19 +183,19 @@ function uptime() {
 
 				// Network
 				var netstr = "";
-				if(result.servers[i].network_rx*8 < 1000)
-					netstr += result.servers[i].network_rx.toFixed(0)*8 + "B";
-				else if(result.servers[i].network_rx*8 < 1000*1000)
-					netstr += (result.servers[i].network_rx/1000).toFixed(0)*8 + "K";
+				if(result.servers[i].network_rx < 1000)
+					netstr += result.servers[i].network_rx.toFixed(0) + "B";
+				else if(result.servers[i].network_rx < 1000*1000)
+					netstr += (result.servers[i].network_rx/1000).toFixed(0) + "K";
 				else
-					netstr += (result.servers[i].network_rx/1000/1000).toFixed(1)*8 + "M";
+					netstr += (result.servers[i].network_rx/1000/1000).toFixed(1) + "M";
 				netstr += " | "
-				if(result.servers[i].network_tx*8 < 1000)
-					netstr += result.servers[i].network_tx.toFixed(0)*8 + "B";
-				else if(result.servers[i].network_tx*8 < 1000*1000)
-					netstr += (result.servers[i].network_tx/1000).toFixed(0)*8 + "K";
+				if(result.servers[i].network_tx < 1000)
+					netstr += result.servers[i].network_tx.toFixed(0) + "B";
+				else if(result.servers[i].network_tx < 1000*1000)
+					netstr += (result.servers[i].network_tx/1000).toFixed(0) + "K";
 				else
-					netstr += (result.servers[i].network_tx/1000/1000).toFixed(1)*8 + "M";
+					netstr += (result.servers[i].network_tx/1000/1000).toFixed(1) + "M";
 				TableRow.children["network"].innerHTML = netstr;
 
 				//Traffic
@@ -243,7 +243,7 @@ function uptime() {
 					TableRow.children["memory"].children[0].children[0].className = "progress-bar progress-bar-success";
 				TableRow.children["memory"].children[0].children[0].style.width = Mem + "%";
 				TableRow.children["memory"].children[0].children[0].innerHTML = Mem + "%";
-				ExpandRow[0].children["expand_mem"].innerHTML = "内存: " + bytesToSize(result.servers[i].memory_used*1024, 2) + " / " + bytesToSize(result.servers[i].memory_total*1024, 2);
+				ExpandRow[0].children["expand_mem"].innerHTML = "内存信息: " + bytesToSize(result.servers[i].memory_used*1024, 2) + " / " + bytesToSize(result.servers[i].memory_total*1024, 2);
 				// Swap
 				ExpandRow[0].children["expand_swap"].innerHTML = "交换分区: " + bytesToSize(result.servers[i].swap_used*1024, 2) + " / " + bytesToSize(result.servers[i].swap_total*1024, 2);
 
@@ -257,7 +257,7 @@ function uptime() {
 					TableRow.children["hdd"].children[0].children[0].className = "progress-bar progress-bar-success";
 				TableRow.children["hdd"].children[0].children[0].style.width = HDD + "%";
 				TableRow.children["hdd"].children[0].children[0].innerHTML = HDD + "%";
-				ExpandRow[0].children["expand_hdd"].innerHTML = "硬盘: " + bytesToSize(result.servers[i].hdd_used*1024*1024, 2) + " / " + bytesToSize(result.servers[i].hdd_total*1024*1024, 2);
+				ExpandRow[0].children["expand_hdd"].innerHTML = "硬盘信息: " + bytesToSize(result.servers[i].hdd_used*1024*1024, 2) + " / " + bytesToSize(result.servers[i].hdd_total*1024*1024, 2);
 
 				// Custom
 				if (result.servers[i].custom) {

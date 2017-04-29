@@ -7,10 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="云监控">
 		<meta name="author" content="BotoX">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="css/dark.css" title="dark">
-		<link rel="stylesheet" href="css/light.css" title="light">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/light.css">
 		<style>
 			body {
 				padding-top: 70px;
@@ -24,7 +23,7 @@
 		<![endif]-->
 	</head>
 	<body>
-		<div role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+		<div role="navigation" class="navbar navbar-inverse navbar-fixed-top navbar-top">
 			<div class="navbar-inner">
 				<div class="container">
 					<div class="navbar-header">
@@ -37,20 +36,15 @@
 						<a href="#" class="navbar-brand">云监控</a>
 					</div>
 					<div class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li class="dropdown">
-								<a data-toggle="dropdown" class="dropdown-toggle" href="#">风格<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="#" onclick="setActiveStyleSheet('dark')">黑夜</a></li>
-									<li><a href="#" onclick="setActiveStyleSheet('light')">白天</a></li>
-								</ul>
-							</li>
-						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
 			</div>
 		</div>
-
+		
+		<div class="container announcement">
+		<i class="fa fa-volume-down"></i><p>我是公告 <code>哇哇哇哇</code>，<a target="_blank" href="https://doub.io">逗比根据地</a> <strong>已支持2333</strong></p>
+		</div>
+		
 		<div class="container content">
 			<div id="loading-notice">
 				<noscript>
@@ -62,7 +56,7 @@
 					<div class="progress-bar progress-bar-warning" style="width: 100%;">加载中...</div>
 				</div>
 				<div style="text-align: center;">
-					如果出现此消息，请确保您已启用Javascript! <br />否则云监控主服务没启动或已关闭.
+					如果出现此消息，请确保您已启用Javascript! <br />否则云监控主服务(服务端) 未启动或已关闭.
 				</div>
 				<p></p>
 			</div>
@@ -72,12 +66,12 @@
 					<th id="status4" style="text-align: center;">IPv4</th>
 					<th id="name">节点名</th>
 					<th id="type">虚拟化</th>
-					<th id="host">主机名</th>
+					<!-- th id="host">主机名</th -->
 					<th id="location">位置</th>
 					<th id="uptime">在线时间</th>
 					<th id="load">负载</th>
-					<th id="network">网络 ↓|↑</th>
-					<th id="traffic">流量 ↓|↑</th>
+					<th id="network">网络(B/s) ↓|↑</th>
+					<th id="traffic">流量(Byte) ↓|↑</th>
 					<th id="cpu">处理器</th>
 					<th id="ram">内存</th>
 					<th id="hdd">硬盘</th>
@@ -93,7 +87,7 @@
 
 		<div class="container">
 			<p style="text-align: center; font-size: 10px;">
-				<a href="https://github.com/tenyue/ServerStatus">ServerStatus中文版</a>
+				<a href="https://github.com/ToyoDAdoubi/ServerStatus-Toyo">ServerStatus-Toyo</a> 基于 <a href="https://github.com/tenyue/ServerStatus">ServerStatus中文版</a>
 			</p>
 		</div>
 		<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
