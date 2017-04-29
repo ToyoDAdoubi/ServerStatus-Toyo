@@ -2,36 +2,39 @@
 	[
 		{
 			"username": "s01",
+			"password": "password",
 			"name": "Mainserver 1",
 			"type": "Dedicated Server",
-			"host": "GenericServerHost123",
+			"host": "No",
 			"location": "Austria",
-			"password": "some-hard-to-guess-copy-paste-password"
+			"disabled": false
 		},
 		{
 			"username": "bs01",
+			"password": "password",
 			"name": "Backupserver 1",
 			"type": "Virtual Server",
-			"host": "GenericVPSHost123",
+			"host": "No",
 			"location": "Switzerland",
-			"password": "some-harder-to-guess-copy-paste-password"
+			"disabled": false
 		},
 		{
-			"disabled": true,
 			"username": "hidden",
+			"password": "password",
 			"name": "Secret",
 			"type": "Nothing",
-			"host": "Noone",
+			"host": "No",
 			"location": "Nowhere",
-			"password": "thanks doge"
+			"disabled": true
 		},
 		{
 			"username": "butt",
+			"password": "password"，
 			"name": "Butt",
 			"type": "Cloud Server",
-			"host": "God",
+			"host": "No",
 			"location": "Heaven??!",
-			"password": "some-even-harder-to-guess-copy-paste-password"
+			"disabled": false
 		}
 	]
 }
