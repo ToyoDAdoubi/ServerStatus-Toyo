@@ -50,7 +50,6 @@ tr.odd.expandRow > :hover { background: #FFF !important; }
 	#location, tr td:nth-child(4)		{ display:none; visibility:hidden; }
 	#uptime, tr td:nth-child(5)			{ display:none; visibility:hidden; }
 	#traffic, tr td:nth-child(8)		{ display:none; visibility:hidden; }
-	#ram, tr td:nth-child(10)		{ display:none; visibility:hidden; }
 	#hdd, tr td:nth-child(11)		{ display:none; visibility:hidden; }
-	#cpu { min-width: 25px; max-width: 50px; }
+	#cpu, #ram { min-width: 20px; max-width: 40px; }
 }
