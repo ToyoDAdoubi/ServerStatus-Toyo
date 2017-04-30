@@ -1,7 +1,7 @@
-# ServerStatus中文版：   
+# ServerStatus-Toyo： 
 
-* ServerStatus中文版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/BotoX/ServerStatus ）项目的中文（优化）版。
-* 在线演示：https://tz.cloudcpp.com    
+* ServerStatus-Toyo版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/tenyue/ServerStatus ）项目的优化/修改版。
+* 在线演示：http://tz.toyoo.ml    
 
 # 目录介绍：
 
@@ -11,94 +11,135 @@
 
 # 更新说明：
 
-* 20170108, 更新支持所有系统
-* 20161205, 去掉无用的IPV6信息，增加服务器总流量监控              
-* 20161203, 汉化并简化安装教程              
+* 20170430, 优化手机显示式样
+* 20170429, 去除主机名设定
+* 20170427, 增加一键部署脚本
 
 # 安装教程：     
-   
-【克隆代码】:
+
+执行下面的代码下载并运行脚本。
+``` bash
+wget -N --no-check-certificate https://softs.pw/Bash/status.sh && chmod +x status.sh
+
+# 如果上面这个脚本无法下载，尝试使用备用下载：
+wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/status.sh && chmod +x status.sh
 ```
-git clone https://github.com/tenyue/ServerStatus.git
+下载脚本后，根据需要安装客户端或者服务端：
+``` bash
+# 显示客户端管理菜单
+bash status.sh c
+ 
+# 显示服务端管理菜单
+bash status.sh s
+```
+运行脚本后会出现脚本操作菜单，选择并输入` 1 `就会开始安装。
+
+一开始会提示你输入 网站服务器的域名和端口，如果没有域名可以直接回车代表使用` 本机IP:8888`
+
+## 简单步骤：
+
+首先安装服务端，安装过程中会提示：
+
+``` bash
+是否由脚本自动配置HTTP服务(服务端的在线监控网站)[Y/n]
+ 
+# 如果你不懂，那就直接回车，如果你想用其他的HTTP服务自己配置，那么请输入 n 并回车。
+# 注意，当你曾经安装过 服务端，同时没有卸载Caddy(HTTP服务)，那么重新安装服务端的时候，请输入 n 并回车。
 ```
 
-【服务端配置】（服务端程序在ServerStatus/web下）:  
-          
-一、生成服务端程序              
-```
-cd ServerStatus/server
-make
-./sergate
-```
-如果没错误提示，OK，ctrl+c关闭；如果有错误提示，检查35601端口是否被占用    
+然后 添加或修改 初始示例的节点配置，注意用户名每个节点配置都不能重复，其他的参数都无所谓了。
 
-二、修改配置文件         
-修改config.json文件，注意username, password的值需要和客户端对应一致                 
-```
-{"servers":
-	[
-		{
-			"username": "s01",
-			"name": "Mainserver 1",
-			"type": "Dedicated Server",
-			"host": "GenericServerHost123",
-			"location": "Austria",
-			"password": "some-hard-to-guess-copy-paste-password"
-		},
-	]
-}       
+然后安装客户端，根据提示填写 服务端的IP 和前面添加/修改 对应的 节点用户名和密码（用于和服务端验证），然后启动就好了，有问题请贴出 详细步骤+日志(如果有)联系我。
+
+# 使用说明：
+
+进入下载脚本的目录并运行脚本：
+
+``` bash
+# 客户端管理菜单
+./status.sh c
+# 服务端管理菜单
+./status.sh s
 ```
 
-三、拷贝ServerStatus/status到你的网站目录        
-例如：
+然后选择你要执行的选项即可。
+
+``` bash
+ServerStatus 一键安装管理脚本 [vx.x.x]
+-- Toyo | doub.io/shell-jc3 --
+ 
+0. 升级脚本
+————————————
+1. 安装 服务端
+2. 卸载 服务端
+————————————
+3. 启动 服务端
+4. 停止 服务端
+5. 重启 服务端
+————————————
+6. 设置 服务端配置
+7. 查看 服务端信息
+8. 查看 服务端日志
+————————————
+9. 切换为 客户端菜单
+ 
+当前状态: 服务端 已安装 并 已启动
+ 
+请输入数字 [0-9]:
 ```
-sudo cp -r ServerStatus/web/* /home/wwwroot/default
-```
+# 其他操作
 
-四、运行服务端：             
-web-dir参数为上一步设置的网站根目录，务必修改成自己网站的路径   
-```
-./sergate --config=config.json --web-dir=/home/wwwroot/default   
-```
+### 客户端：
 
-【客户端配置】（客户端程序在ServerStatus/clients下）：          
-客户端有两个版本，client-linux为普通linux，client-psutil为跨平台版，普通版不成功，换成跨平台版即可。        
+启动：service status-client start
 
-一、client-linux版配置：       
-1、vim client-linux.py, 修改SERVER地址，username帐号， password密码        
-2、python client-linux.py 运行即可。      
+停止：service status-client stop
 
-二、client-psutil版配置:                
-1、安装psutil跨平台依赖库      
-2、vim client-psutil.py, 修改SERVER地址，username帐号， password密码       
-3、python client-psutil.py 运行即可。           
-```
-### for Centos：
-sudo yum -y install epel-release
-sudo yum -y install python-pip
-sudo yum clean all
-sudo yum -y install gcc
-sudo yum -y install python-devel
-sudo pip install psutil
-### for Ubuntu/Debian:
-sudo root
-apt-get -y install python-setuptools python-dev build-essential
-apt-get -y install python-pip
-pip install psutil
-### for Windows:
-打开网址：https://pypi.python.org/pypi?:action=display&name=psutil#downloads
-下载psutil for windows程序包
-安装即可
-```
+重启：service status-client restart
 
-打开云探针页面，就可以正常的监控。接下来把服务器和客户端脚本自行加入开机启动，或者进程守护，或以后台方式运行即可！例如： nohup python client-linux.py &      
+查看状态：service status-client status
 
-# 为什么会有ServerStatus中文版：
+### 服务端：
 
-* 有些功能确实没用
-* 原版本部署，英文说明复杂
-* 不符合中文版的习惯
-* 没有一次又一次的轮子，哪来如此优秀的云探针
+启动：service status-server start
+
+停止：service status-server stop
+
+重启：service status-server restart
+
+查看状态：service status-server status
+
+### Caddy（HTTP服务）：
+
+启动：service caddy start
+
+停止：service caddy stop
+
+重启：service caddy restart
+
+查看状态：service caddy status
+
+Caddy配置文件：/usr/local/caddy/caddy
+
+默认脚本只能一开始安装的时候设置配置文件，更多的Caddy使用方法，可以参考这些教程：https://doub.io/search/caddy
+
+——————————————————————————————————————
+
+安装目录：/usr/local/ServerStatus
+
+网页文件：/usr/local/ServerStatus/web
+
+配置文件：/usr/local/ServerStatus/server/config.json
+
+客户端查看日志：tail -f tmp/serverstatus_client.log
+
+服务端查看日志：tail -f /tmp/serverstatus_server.log
+
+# 其他说明
+
+网络实时流量单位为：G=GB/s，M=MB/s，K=KB/s
+
+服务器总流量单位为：T=TB，G=GB，M=MB，K=KB
 
 # 相关开源项目，感谢： 
 
