@@ -2,6 +2,7 @@
 
 * ServerStatus-Toyo版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/tenyue/ServerStatus ）项目的优化/修改版。
 * 在线演示：http://tz.toyoo.ml    
+* 我的博客：https://doub.io/shell-jc3/
 
 # 目录介绍：
 
