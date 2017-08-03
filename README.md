@@ -20,7 +20,7 @@
 
 执行下面的代码下载并运行脚本。
 ``` bash
-wget -N --no-check-certificate https://softs.pw/Bash/status.sh && chmod +x status.sh
+wget -N --no-check-certificate https://softs.fun/Bash/status.sh && chmod +x status.sh
 
 # 如果上面这个脚本无法下载，尝试使用备用下载：
 wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/status.sh && chmod +x status.sh
