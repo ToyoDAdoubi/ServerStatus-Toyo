@@ -72,7 +72,7 @@ function bytesToSize(bytes, precision, si)
 }
 
 function uptime() {
-	$.getJSON("json/stats.json", function(result) {
+	$.getJSON("/json/stats.json", function(result) {
 		$("#loading-notice").remove();
 		if(result.reload)
 			setTimeout(function() { location.reload(true) }, 1000);
