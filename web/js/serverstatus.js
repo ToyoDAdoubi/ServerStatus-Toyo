@@ -178,7 +178,7 @@ function uptime() {
 				if(result.servers[i].load == -1) {
 					TableRow.children["load"].innerHTML = "–";
 				} else {
-					TableRow.children["load"].innerHTML = result.servers[i].load.toFixed(2);
+					TableRow.children["load"].innerHTML = result.servers[i].load;
 				}
 
 				// Network
