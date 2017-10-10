@@ -55,7 +55,9 @@ def get_hdd():
 	return int(size), int(used)
 
 def get_load():
-	return os.getloadavg()[0]
+	tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep python |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |wc -l").read()
+	return float(tmp_load)
+	#return os.getloadavg()[0]
 
 def get_time():
 	stat_file = file("/proc/stat", "r")
