@@ -1,4 +1,4 @@
-body { font-family:Molengo,"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; background: #ebebeb url('../img/light.png'); }
+body { font-family:"Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; background: #ebebeb url('../img/light.png'); }
 .announcement { color: #777; border-bottom: solid 3px #d0d0d0; background-color: #fff; padding: 10px 10px; text-align: center; transition: 0.3s; }
 .announcement:hover { border-bottom: solid 3px #159e83; transition: 0.3s; }
 .announcement p { display: inline-block;font-size: 15px;margin: 0;line-height: 1;text-indent: 5px; }
